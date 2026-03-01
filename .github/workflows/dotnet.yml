@@ -16,9 +16,13 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '8.0.x'
+        
     - name: Restore dependencies
-      run: dotnet restore
+      # We tell it to look into the subfolder for the solution
+      run: dotnet restore OrderSearchLibrary/OrderSearchLibrary.sln
+      
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build OrderSearchLibrary/OrderSearchLibrary.sln --no-restore
+      
     - name: Test
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+      run: dotnet test OrderSearchLibrary/OrderSearchLibrary.sln --no-build --verbosity normal
