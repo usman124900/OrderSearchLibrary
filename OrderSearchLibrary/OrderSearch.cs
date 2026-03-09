@@ -15,7 +15,7 @@ namespace OrderSearchLibrary
 
             while (bottom <= top && found == false)
             {
-                mid = (top + bottom) / 2;
+                mid = (top + bottom) / 2+1;
                 if (elemArray[mid] == key)
                 {
                     index = mid;
